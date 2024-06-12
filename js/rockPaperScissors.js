@@ -7,7 +7,6 @@ console.log("Hello World!");
 //Variables
 let humanScore = 0,
     computerScore = 0;
-console.log(humanScore + " / " + computerScore);
 
 //testing!! Call functions and log to console
 //console.log("Computers Choice Is " + getComputerChoice());
@@ -19,7 +18,6 @@ function getComputerChoice() {
     //generate random number between 1 & 3
     //store in computerChoice variable
     let computerChoice = Math.floor(Math.random() * 3) + 1;
-    console.log(computerChoice);
     //check if if random number is 1, 2 or 3 then return appropriate answer
     if (computerChoice == 1) {
         return "Rock";
@@ -28,7 +26,6 @@ function getComputerChoice() {
         return "Paper";
 
     } else {
-        console.log("returning scissors");
         return "Scissors";
 
     }
@@ -39,7 +36,6 @@ function getComputerChoice() {
 function getHumanChoice() {
     //ask player for their Choice and store in humanChoice
     let humanChoice = prompt("Type Rock, Paper Or Scissors below to make your choice");
-    console.log(humanChoice);
     //make human choice all lower case and return
     if(humanChoice.toLowerCase() === "rock") {
         return "Rock";
@@ -75,6 +71,7 @@ function playRound(humanChoice, computerChoice) {
         humanScore +=1;
     }else {
         console.log("You Lose!! " + computerChoice + " Beats " + humanChoice);
+        //increment the score
         computerScore +=1;
     }
 
