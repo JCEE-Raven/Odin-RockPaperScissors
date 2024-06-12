@@ -7,10 +7,12 @@ console.log("Hello World!");
 //Variables
 let humanScore = 0,
     computerScore = 0;
-    console.log(humanScore + " / " + computerScore);
+console.log(humanScore + " / " + computerScore);
+
 //testing!! Call functions and log to console
-console.log("Computers Choice Is " + getComputerChoice());
-console.log("Human Choice Is " + getHumanChoice());
+//console.log("Computers Choice Is " + getComputerChoice());
+//console.log("Human Choice Is " + getHumanChoice());
+playRound(getHumanChoice(), getComputerChoice());
 
 //function to get the computers choice of rock paper or scissors
 function getComputerChoice() {
@@ -26,7 +28,9 @@ function getComputerChoice() {
         return "Paper";
 
     } else {
+        console.log("returning scissors");
         return "Scissors";
+
     }
 
 }
@@ -53,7 +57,29 @@ function getHumanChoice() {
 
 }
 
+//function to play one round of the game
+function playRound(humanChoice, computerChoice) {
+    //rock >> scissors >> paper >> rock
+    //check to see if its a draw before doing anything else
+    console.log("human " + humanChoice);
+    console.log("computer " + computerChoice);
+    if(humanChoice === computerChoice) {
+        console.log("You Both Picked " + computerChoice + "! it's a Draw!!!");
 
+    } else if((humanChoice === "Rock" && computerChoice === "Scissors") 
+            || (humanChoice === "Scissors" && computerChoice === "Paper") 
+            || (humanChoice === "Paper" && computerChoice === "Rock")) {
+        //check computer score and print message
+        console.log("You Win!! " + humanChoice + " Beats " + computerChoice);
+        //increment the score
+        humanScore +=1;
+    }else {
+        console.log("You Lose!! " + computerChoice + " Beats " + humanChoice);
+        computerScore +=1;
+    }
+
+    console.log("The Score is currently Human " + humanScore + " Computer " + computerScore);
+}
 
 
 
