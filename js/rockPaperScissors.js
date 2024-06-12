@@ -5,7 +5,9 @@
 console.log("Hello World!");
 
 //Variables
-
+let humanScore = 0,
+    computerScore = 0;
+    console.log(humanScore + " / " + computerScore);
 //testing!! Call functions and log to console
 console.log("Computers Choice Is " + getComputerChoice());
 console.log("Human Choice Is " + getHumanChoice());
