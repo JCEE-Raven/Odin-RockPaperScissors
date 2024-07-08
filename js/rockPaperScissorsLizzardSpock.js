@@ -1,6 +1,5 @@
-//edit of Odin | Project: Rock Paper Scissors 
-//create the game Rock Paper Scissors Lizard Spock. 
-//This game will be played entirely in the console.
+// Rock Paper Scissors Lizard Spock. v0.3
+//Now with UI
 //just saying hello!!
 //console.log("Hello World!");
 
