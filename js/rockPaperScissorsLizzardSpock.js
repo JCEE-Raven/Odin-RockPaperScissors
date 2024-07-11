@@ -12,10 +12,24 @@ const playerScoreBoard = document.querySelector('.playerScore');
 const computerScoreBoard = document.querySelector('.computerScore');
 const playerButtons = document.querySelector('.buttonContainer')
 const gameMessage = document.querySelector('.gameMessage');
+const replayButton = document.querySelector('.replayButton');
 
-//figure out which button the player pressed then lets play a round
+//say hi before we start
+gameMessage.textContent = 'Shall we play a game!!';
+
+//handle player button clicks
 playerButtons.addEventListener('click', (event) => {
     playRound(event.target.textContent, getComputerChoice());        
+});
+
+replayButton.addEventListener('click', () => {
+    //reset game
+    humanScore = 0;
+    computerScore = 0;
+    playerScoreBoard.textContent = 0;
+    computerScoreBoard.textContent = 0;
+    gameMessage.textContent = 'Shall we play a game!!';
+    replayButton.style.visibility = 'hidden';
 });
 
 //function to play one round of the game
@@ -61,20 +75,30 @@ function playRound(humanChoice, computerChoice) {
         if(humanScore == computerScore) {
             console.log("Oh No!!  It's A Draw!!");
             gameMessage.textContent = "Oh No!!  It's A Draw!!";
+            replayGame();
     
         }else if(humanScore > computerScore) {
             console.log("Congratulations!! You Won!!!");
             gameMessage.textContent = "Congratulations!! You Won!!!";
+            replayGame();
     
         }else {
             console.log("Oh No!! You Lost!!");
             gameMessage.textContent = "Oh No!! You Lost!!";
+            replayGame();
         }
     }
 
     //display scores
     // displayScore(roundNumber, humanScore, computerScore);
-}
+};
+
+//make the replay button appear
+function replayGame() {
+    gameMessage.textContent = "If you would like to play Again Click the replay button"
+    replayButton.style.visibility = "visible";
+
+};
 
 
 
