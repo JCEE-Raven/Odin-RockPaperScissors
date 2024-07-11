@@ -4,17 +4,27 @@
 //console.log("Hello World!");
 
 //play the game
-playGame();
+// playGame();
 
-function playGame() {
+// function playGame() {
     //Variables
     let humanScore = 0,
         computerScore = 0,
         roundNumber = 0;
+    const playerButtons = document.querySelector('.buttonContainer')
+
+    //figure out which button the player pressed then lets play a round
+    playerButtons.addEventListener('click', (event) => {
+        let buttonPressed = event.target;
+        console.log(buttonPressed.textContent);
+        playRound(buttonPressed.textContent, getComputerChoice());        
+    })
+
+
     //loop until 5 rounds have been achieved and print out a winner
-    for(roundNumber = 1; roundNumber < 6; roundNumber++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    // for(roundNumber = 1; roundNumber < 6; roundNumber++) {
+    //     playRound(getHumanChoice(), getComputerChoice());
+    // }
 
     //function to play one round of the game
     function playRound(humanChoice, computerChoice) {
@@ -52,7 +62,7 @@ function playGame() {
         displayScore(roundNumber, humanScore, computerScore);
     }
 
-}
+// }
 
 //function to display score and winning messages
 function displayScore(roundNumber, humanScore, computerScore) {
