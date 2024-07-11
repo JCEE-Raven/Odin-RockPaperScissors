@@ -3,66 +3,54 @@
 //just saying hello!!
 //console.log("Hello World!");
 
-//play the game
-// playGame();
+//Variables
+let humanScore = 0,
+    computerScore = 0,
+    roundNumber = 0;
+const playerButtons = document.querySelector('.buttonContainer')
 
-// function playGame() {
-    //Variables
-    let humanScore = 0,
-        computerScore = 0,
-        roundNumber = 0;
-    const playerButtons = document.querySelector('.buttonContainer')
+//figure out which button the player pressed then lets play a round
+playerButtons.addEventListener('click', (event) => {
+    playRound(event.target.textContent, getComputerChoice());        
+});
 
-    //figure out which button the player pressed then lets play a round
-    playerButtons.addEventListener('click', (event) => {
-        let buttonPressed = event.target;
-        console.log(buttonPressed.textContent);
-        playRound(buttonPressed.textContent, getComputerChoice());        
-    })
-
-
-    //loop until 5 rounds have been achieved and print out a winner
-    // for(roundNumber = 1; roundNumber < 6; roundNumber++) {
-    //     playRound(getHumanChoice(), getComputerChoice());
-    // }
-
-    //function to play one round of the game
-    function playRound(humanChoice, computerChoice) {
-        //Scissors >> Paper >> Rock >> Lizard >> Spock >> 
-        //Scissors >> Lizard >> paper >> Spock >> Rock >>
-        //Scissors 
+//function to play one round of the game
+function playRound(humanChoice, computerChoice) {
+    //Scissors >> Paper >> Rock >> Lizard >> Spock >> 
+    //Scissors >> Lizard >> paper >> Spock >> Rock >>
+    //Scissors 
         
-        //check to see if its a draw before doing anything else
-        console.log("human " + humanChoice);
-        console.log("computer " + computerChoice);
-        if(humanChoice === computerChoice) {
-            console.log("You Both Picked " + computerChoice + "! it's a Draw!!!");
+    //check to see if its a draw before doing anything else
+    console.log("human " + humanChoice);
+    console.log("computer " + computerChoice);
+    if(humanChoice === computerChoice) {
+        console.log("You Both Picked " + computerChoice + "! it's a Draw!!!");
 
-        } else if((humanChoice === "Scissors" && computerChoice === "Paper") 
-                || (humanChoice === "Paper" && computerChoice === "Rock") 
-                || (humanChoice === "Rock" && computerChoice === "Lizard")
-                || (humanChoice === "Lizard" && computerChoice === "Spock")
-                || (humanChoice === "Spock" && computerChoice === "Scissors")
-                || (humanChoice === "Scissors" && computerChoice === "Lizard")
-                || (humanChoice === "Lizard" && computerChoice === "Paper")
-                || (humanChoice === "Paper" && computerChoice === "Spock")
-                || (humanChoice === "Spock" && computerChoice === "Rock")
-                || (humanChoice === "Rock" && computerChoice === "Scissors")) {
-            //check computer score and print message
-            console.log("You Win!! This Round!! " + humanChoice + " Beats " + computerChoice);
-            //increment the score
-            humanScore +=1;
-        }else {
-            console.log("You Lose!! This Round!! " + computerChoice + " Beats " + humanChoice);
-            //increment the score
-            computerScore +=1;
-        }
-
-        //display scores
-        displayScore(roundNumber, humanScore, computerScore);
+    } else if((humanChoice === "Scissors" && computerChoice === "Paper") 
+            || (humanChoice === "Paper" && computerChoice === "Rock") 
+            || (humanChoice === "Rock" && computerChoice === "Lizard")
+            || (humanChoice === "Lizard" && computerChoice === "Spock")
+            || (humanChoice === "Spock" && computerChoice === "Scissors")
+            || (humanChoice === "Scissors" && computerChoice === "Lizard")
+            || (humanChoice === "Lizard" && computerChoice === "Paper")
+            || (humanChoice === "Paper" && computerChoice === "Spock")
+            || (humanChoice === "Spock" && computerChoice === "Rock")
+            || (humanChoice === "Rock" && computerChoice === "Scissors")) {
+        //check computer score and print message
+        console.log("You Win!! This Round!! " + humanChoice + " Beats " + computerChoice);
+        //increment the score
+        humanScore +=1;
+    }else {
+        console.log("You Lose!! This Round!! " + computerChoice + " Beats " + humanChoice);
+        //increment the score
+        computerScore +=1;
     }
 
-// }
+    //display scores
+    displayScore(roundNumber, humanScore, computerScore);
+}
+
+
 
 //function to display score and winning messages
 function displayScore(roundNumber, humanScore, computerScore) {
