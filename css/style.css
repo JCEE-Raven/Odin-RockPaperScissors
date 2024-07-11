@@ -70,5 +70,6 @@ button:hover {
 .messageContainer {
     border: 1px solid green;
     width: 700px;
+    height: 50px;
 
 }

@@ -7,7 +7,11 @@
 let humanScore = 0,
     computerScore = 0,
     roundNumber = 0;
+
+const playerScoreBoard = document.querySelector('.playerScore');
+const computerScoreBoard = document.querySelector('.computerScore');
 const playerButtons = document.querySelector('.buttonContainer')
+const gameMessage = document.querySelector('.gameMessage');
 
 //figure out which button the player pressed then lets play a round
 playerButtons.addEventListener('click', (event) => {
@@ -25,6 +29,7 @@ function playRound(humanChoice, computerChoice) {
     console.log("computer " + computerChoice);
     if(humanChoice === computerChoice) {
         console.log("You Both Picked " + computerChoice + "! it's a Draw!!!");
+        gameMessage.textContent = "You Both Picked " + computerChoice + "! it's a Draw!!!";
 
     } else if((humanChoice === "Scissors" && computerChoice === "Paper") 
             || (humanChoice === "Paper" && computerChoice === "Rock") 
@@ -38,12 +43,16 @@ function playRound(humanChoice, computerChoice) {
             || (humanChoice === "Rock" && computerChoice === "Scissors")) {
         //check computer score and print message
         console.log("You Win!! This Round!! " + humanChoice + " Beats " + computerChoice);
+        gameMessage.textContent = "You Win!! This Round!! " + humanChoice + " Beats " + computerChoice;
         //increment the score
         humanScore +=1;
+        playerScoreBoard.textContent = humanScore;
     }else {
         console.log("You Lose!! This Round!! " + computerChoice + " Beats " + humanChoice);
+        gameMessage.textContent = "You Lose!! This Round!! " + computerChoice + " Beats " + humanChoice;
         //increment the score
         computerScore +=1;
+        computerScoreBoard.textContent = computerScore;
     }
 
     //display scores
