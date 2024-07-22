@@ -1,5 +1,6 @@
 //Odin | Project: Rock Paper Scissors
 //create the game Rock Paper Scissors. 
+//Jaycee Raven 2024
 //This game will be played entirely in the console.
 //just saying hello!!
 //console.log("Hello World!");

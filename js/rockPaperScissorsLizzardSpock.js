@@ -1,4 +1,5 @@
 // Rock Paper Scissors Lizard Spock. v0.3
+//Jaycee Raven 2024
 //Now with UI
 //just saying hello!!
 //console.log("Hello World!");
